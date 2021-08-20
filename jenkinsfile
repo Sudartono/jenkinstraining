@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Step one') {
+            steps {
+                bat 'dir c:\\windows > hasill.txt'
+            }
+        }
+        stage('Step two') {
+            steps {
+                bat 'copy hasill.txt d:\\1M14\\hasill.txt'
+            }
+        }
+         stage('Step three') {
+            steps {
+                bat 'del d:\\1M14\\resultt.txt'
+                bat 'ren d:\\1M14\\hasill.txt resultt.txt'
+            }
+        }
+    }
+}
